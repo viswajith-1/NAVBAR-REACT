@@ -5,8 +5,8 @@ const Navbar = () => {
     <nav className='nav'>
         <a href="/" className='site-title'>Navbar</a>
         <ul>
-        <li><a href="/contactUs"></a>Contact Us</li>
-            <li><a href="/aboutUs"></a>About Us</li>
+        <a href="/ContactUs"><li>Contact Us</li></a>
+        <a href="/AboutUs"><li>About Us</li></a>
         </ul>
     </nav>
   )
