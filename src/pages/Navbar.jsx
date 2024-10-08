@@ -3,33 +3,26 @@ import React from "react";
 const Navbar = () => {
   const path = window.location.pathname;
   return (
+    <>
     <nav className="nav">
       <a href="/" className="site-title">
         Navbar
       </a>
       <ul>
-        <customLink href="/contactUs"></customLink>
-        <forLink href="/contactUs"></forLink>
-        <a href="/contactUs">
-          <li>Contact Us</li>
-        </a>
-        <a href="/aboutUs">
-          <li>About Us</li>
-        </a>
+        <CustomLink href='/contactUs'>Contact Us</CustomLink>
+        <CustomLink href='/aboutUs'>About Us</CustomLink>
       </ul>
     </nav>
+    </>
   )
 }
 
-function customLink({ href, children, ...props }) {
+const CustomLink = ({href,children, ...props}) => {
+  const path = window.location.pathname;
   return (
-    <a href={href}><li>Contact Us</li></a>
-  )  
-}
-
-const forLink = ({ href, children, ...props }) => {
-  return (
-    <li><a href={href}>Contact Us</a></li>
+    <a href={href} {...props}>
+          <li className={path===href?"active":""}>{children}</li>
+    </a>
   )
 }
 
