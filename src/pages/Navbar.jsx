@@ -1,28 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const path = window.location.pathname;
   return (
     <>
     <nav className="nav">
-      <a href="/" className="site-title">
+      <Link to="/" className="site-title">
         Navbar
-      </a>
+      </Link>
       <ul>
-        <CustomLink href='/contactUs'>Contact Us</CustomLink>
-        <CustomLink href='/aboutUs'>About Us</CustomLink>
+        <CustomLink to='/contactus'>Contact Us</CustomLink>
+        <CustomLink to='/aboutus'>About Us</CustomLink>
       </ul>
     </nav>
     </>
   )
 }
 
-const CustomLink = ({href,children, ...props}) => {
+const CustomLink = ({to,children, ...props}) => {
   const path = window.location.pathname;
   return (
-    <a href={href} {...props}>
-          <li className={path===href?"active":""}>{children}</li>
-    </a>
+    <Link to={to} {...props}>
+          <li className={path===to?"active":""}>{children}</li>
+    </Link>
   )
 }
 
